@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AutoNovel</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+  <h1>Auto-Novel</h1>
+  <nav>
+    <%= link_to "Home", root_path %>
+    <% if @current_user.present? %>
+      <%= link_to "Log Out", login_path, :method => 'delete' %>
+    <% else %>
+      <%= link_to "Log In", login_path %>
+      <%= link_to "Create Account", new_user_path %>
+    <% end %>
+  </nav>
+    <%= yield %>
+  </body>
+</html>
