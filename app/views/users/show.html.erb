@@ -1,0 +1,7 @@
+<h2>Your Library</h2>
+<h3>Excerpts</h3>
+<%= link_to 'Create New Excerpt', new_excerpt_path %>
+<% @current_user.excerpts.each do |f| %>
+    <p><%= f.content %><p>
+<% end %>
+<h3>Novels</h3>
