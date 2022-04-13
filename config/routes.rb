@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  get 'excerpts/new'
-  get 'excerpts/edit'
-  get 'excerpts/show'
+
   root :to => 'pages#home'
 
   get '/login' => 'session#new'
@@ -9,5 +7,6 @@ Rails.application.routes.draw do
   delete '/login' => 'session#destroy'
 
   resources :users, :only => [:new, :create, :show]
-  resources :excerpts
+  resources :excerpts, :only => [:new, :create, :show, :edit, :update, :destroy]
+  resources :novels, :only => [:new, :create, :show, :edit, :destroy, :update]
 end

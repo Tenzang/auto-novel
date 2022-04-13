@@ -3,5 +3,29 @@
 <%= link_to 'Create New Excerpt', new_excerpt_path %>
 <% @current_user.excerpts.each do |f| %>
     <p><%= f.content %><p>
+    <%= link_to 'edit excerpt', edit_excerpt_path(f) %>
+    <form action="<%=excerpt_path(48)%>" method="POST">
+        <input type="hidden" name="_method" value="DELETE">
+        <button type="submit"> Delete Excerpt </button>
+    </form>
 <% end %>
 <h3>Novels</h3>
+<ul>
+    <li>
+        <%= link_to "New Novel", new_novel_path %>
+    </li>
+<% @current_user.novels.each do |f| %>
+    <li>
+        <% if f.title.present? %>
+            <p><%= link_to f.title, f %></p>
+        <% else %>
+            <p><%= link_to 'untitled novel', f %></p>
+        <% end %>
+        <% if f.cover.present? %>
+            <img src="<%= f.cover %>" alt="A picture of the novels cover.">
+        <% else %>
+            <img src="http://www.fillmurray.com/200/300" alt="A picture of the novels cover.">
+        <% end %>    
+</li>
+<% end %>
+</ul>

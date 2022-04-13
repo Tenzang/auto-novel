@@ -10,13 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_11_090740) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_13_004652) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "excerpts", force: :cascade do |t|
     t.text "content"
     t.integer "length"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "excerpts_novels", id: false, force: :cascade do |t|
+    t.integer "excerpt_id"
+    t.integer "novel_id"
+  end
+
+  create_table "novels", force: :cascade do |t|
+    t.text "content"
+    t.integer "upvotes"
+    t.text "cover"
+    t.text "title"
+    t.text "blurb"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

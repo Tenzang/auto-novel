@@ -1,0 +1,38 @@
+<% if @novel.title.present? %>
+    <h2><%= @novel.title %></h2>
+<% else %>
+    <h2>untitled novel</h2>
+<% end %>
+
+<% if @novel.cover.present? %>
+    <img src="<%= @novel.cover %>" alt="A picture of the novels cover.">
+<% else %>
+    <img src="http://www.fillmurray.com/200/300" alt="A picture of the novels cover.">
+<% end %>
+<hr>
+<span>Blurb: </span>
+<% if @novel.blurb.present? %>
+    <%= @novel.blurb %>
+<% else %>
+    No blurb has been written yet...
+<% end %>
+
+<hr>
+
+<%= @novel.content %>
+
+<h3>Authors:</h3>
+<ul>
+<% @novel.excerpts.map{ |excerpt| excerpt.user }.uniq.each do |author| %>
+    <li>
+        <%= author.name %>
+    </li>
+<% end %>
+</ul>
+
+<%= link_to 'Edit Novel', edit_novel_path(@novel) %>
+
+<form action="<%=novel_path(@novel)%>" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <button type="submit"> Delete Novel </button>
+</form>
