@@ -11,21 +11,23 @@
   </head>
 
   <body>
-  <h1>Auto-Novel</h1>
-  <nav>
-    <%= link_to "Home", root_path %>
-    <% if @current_user.present? %>
-      <%= link_to "Your Library", user_path(@current_user) %>
-      <!-- <%= link_to "Log Out", root_path, :method => 'delete' %> # BROKEN, MUST USE BUTTON BELOW INSTEAD-->
-      <form action="<%=login_path%>" method="POST">
-        <input type="hidden" name="_method" value="DELETE">
-        <button type="submit"> Log Out </button>
-      </form>
-    <% else %>
-      <%= link_to "Log In", login_path %>
-      <%= link_to "Create Account", new_user_path %>
-    <% end %>
-  </nav>
-    <%= yield %>
+  <div class="container">
+    <h1>Auto-Novel</h1>
+    <nav>
+      <%= link_to "Home", root_path %>
+      <% if @current_user.present? %>
+        <%= link_to "Your Library", user_path(@current_user) %>
+        <!-- <%= link_to "Log Out", root_path, :method => 'delete' %> # BROKEN, MUST USE BUTTON BELOW INSTEAD-->
+        <form action="<%=login_path%>" method="POST">
+          <input type="hidden" name="_method" value="DELETE">
+          <button type="submit"> Log Out </button>
+        </form>
+      <% else %>
+        <%= link_to "Log In", login_path %>
+        <%= link_to "Create Account", new_user_path %>
+      <% end %>
+    </nav>
+      <%= yield %>
+  </div>
   </body>
 </html>
