@@ -1,6 +1,13 @@
-<%= form_for @excerpt do |f| %>
-    <%= f.label :content %>
-    <%= f.text_area :content %>
-
-    <%= f.submit %>
-<% end %>
+<br>
+<div class="row">
+    <div class="col-2"></div>
+    <div class=" col-8">
+        <%= form_for @excerpt do |f| %>
+            <%= f.label :content, :hidden => 'hidden' %>
+            <%= f.text_area :content, :class => "form-control" %>
+            <br>
+            <%= f.submit nil, :class => 'btn btn-primary' %>
+        <% end %>
+    </div>
+    <div class="col-2"></div>
+</div>

@@ -1,11 +1,13 @@
 @import "bootstrap";
+
 input.form-control {
     border-radius: 0;
     margin-bottom: -1px;
 }
 
-div.form-floating:focus {
-    z-index: 9999;
+input.form-control:focus {
+    position: relative;
+    z-index: 1;
 }
 
 div.form-floating:first-of-type input.form-control {

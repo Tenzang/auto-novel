@@ -68,7 +68,6 @@
             <li class="list-group-item">
 
                 <%= link_to 'edit excerpt', edit_excerpt_path(f), :class => 'btn btn-secondary btn-sm' %>
-                
                 <form action="<%=excerpt_path(48)%>" method="POST">
                     <input type="hidden" name="_method" value="DELETE">
                     <button type="submit" class="btn btn-secondary btn-sm"> Delete Excerpt </button>
@@ -132,7 +131,7 @@
                     <img class="card-img-top" src="http://www.fillmurray.com/200/300" alt="A picture of the novels cover.">
                 <% end%>
             <% end %>
-            
+ 
         </div>
 
         <ul class="list-group list-group-flush">
