@@ -17,3 +17,13 @@ div.form-floating:first-of-type input.form-control {
 div.form-floating:last-of-type input.form-control {
     border-radius: 0 0 0.25rem 0.25rem;
 }
+
+.upvote {
+    border: 0;
+    background-color: rgba(0,0,0,0);
+}
+
+.counter {
+    justify-content: center;
+    border: 1px solid black;
+}

@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   post '/login' => 'session#create'
   delete '/login' => 'session#destroy'
 
+  post '/pseudouser/:id' => 'pseudousers#upvote', :as => 'upvote'
+
   resources :users, :only => [:new, :create, :show]
   resources :excerpts, :only => [:new, :create, :show, :edit, :update, :destroy]
   resources :novels, :only => [:new, :create, :show, :edit, :destroy, :update]

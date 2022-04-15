@@ -22,12 +22,16 @@
             <% else %>
                 <p>This novel doesn't have a blurb yet.</p>
             <% end %>
-
-            <%= form_for novel do |f| %>
-                <%= f.hidden_field :upvotes, value: 1 %>
-                <%= button_tag do %>
-                    <img style="width:1em" src="/assets/upvote.png" alt="upvote icon">
-                <% end %>
+            
+            <span>upvotes: </span>
+            <%= novel.pseudousers.count %>
+            <% if @current_user.present? %>
+                <form action="<%= upvote_path(@current_user.pseudouser.id) %>" method="post">
+                    <input type="hidden" name="upvote" value="<%= novel.id %>">
+                        <button class="upvote">
+                            <img style="width:1em;<% if novel.pseudousers.exists?(id: @current_user.pseudouser.id) %>transform:scaleY(-1)<% end %>" src="/assets/upvote.png" alt="upvote icon">
+                        </button>
+                </form>
             <% end %>
         </div>
     <% end %>

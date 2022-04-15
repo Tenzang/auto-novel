@@ -29,7 +29,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_15_071334) do
 
   create_table "novels", force: :cascade do |t|
     t.text "content"
-    t.integer "upvotes"
+    t.integer "upvotes", default: 0
     t.text "cover"
     t.text "title"
     t.text "blurb"
