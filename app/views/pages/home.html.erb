@@ -22,10 +22,11 @@
             <% else %>
                 <p>This novel doesn't have a blurb yet.</p>
             <% end %>
+
             <%= form_for novel do |f| %>
+                <%= f.hidden_field :upvotes, value: 1 %>
                 <%= button_tag do %>
-                    <p>upvote</p>
-                    <img src="/assets/upvote.png" alt="upvote icon">
+                    <img style="width:1em" src="/assets/upvote.png" alt="upvote icon">
                 <% end %>
             <% end %>
         </div>

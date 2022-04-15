@@ -1,6 +1,8 @@
 User.destroy_all
+Pseuduser.destroy_all
 
 u1 = User.create :email => 'testguy@ga.co', :name => 'testguy', :password => 'chicken'
+Pseudouser.create :user_id => u1.id
 
 puts "Users created: #{User.count}"
 

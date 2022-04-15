@@ -34,4 +34,13 @@ class NovelsController < ApplicationController
     redirect_to user_path @current_user
   end
 
+  private
+  def find_excerpts
+    count = 3
+    excerpts = (0...Excerpt.count).to_a.shuffle.take(count).map{ |excerpt| Excerpt.limit(1).offset(excerpt)[0] }
+  end
+
+  def novel_params
+    params.require(:novel).permit(:title, :blurb, :cover, :upvotes)
+  end
 end
