@@ -1,14 +1,21 @@
 <h2>Edit Novel</h2>
-
-<%= form_for @novel do |f| %>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-
-    <%= f.label :blurb %>
-    <%= f.text_field :blurb %>
-
-    <%= f.label :cover %>
-    <%= f.text_field :cover %>
-
-    <%= f.submit %>
-<% end %>
+<div class="form-container">
+    <%= form_for @novel do |f| %>
+        <div class="form-group">
+            <%= f.label :title %>
+            <%= f.text_field :title, :class => 'form-control', :placeholder => 'Title goes here.' %>
+        </div>
+        <br>
+        <div class="form-group">
+            <%= f.label :blurb %>
+            <%= f.text_area :blurb, :class => 'form-control', :placeholder => 'Blurb goes here.' %>
+        </div>
+        <br>
+        <div class="form-group">
+            <%= f.label :cover %>
+            <%= f.text_field :cover, :class => 'form-control', :placeholder => 'http://...' %>
+        </div>
+        <br>
+        <%= f.submit nil, :class => 'btn btn-primary' %>
+    <% end %>
+</div>

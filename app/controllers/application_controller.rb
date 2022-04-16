@@ -7,6 +7,10 @@ class ApplicationController < ActionController::Base
         session[:user_id] = nil unless @current_user.present? # Log out non-existent users.
     end
 
+    def hand_written
+        ['freehand', 'gochihand', 'handlee', 'anotherhand', 'partrickhand']
+    end
+
     # def check_for_login
     #     redirect_to login_path unless @current_user.present?
     # end

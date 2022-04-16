@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
+  
   def new
     @user = User.new
   end
-
+  
   def create
     user = User.new user_params
     if user.save
@@ -13,8 +14,9 @@ class UsersController < ApplicationController
       redirect_to new_user_path # show them the form again so they can try again
     end
   end
-
+  
   def show
+    @fonts = hand_written
   end
   
   private

@@ -1,4 +1,9 @@
 @import "bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Freehand&family=Gochi+Hand&family=Handlee&family=Just+Another+Hand&family=Patrick+Hand+SC&family=Roboto+Mono:wght@500&display=swap');
+
+body {
+    font-family: 'Roboto Mono', monospace;
+}
 
 input.form-control {
     border-radius: 0;
@@ -32,4 +37,56 @@ div.form-floating:last-of-type input.form-control {
     display: block;
     margin: 0 auto;
     width: 50%;
+}
+
+.form-container {
+    margin: 0 auto;
+    width: 40em;
+}
+
+.btn-edit {
+    margin-right: 10px;
+}
+
+.btn-edit-top {
+    margin-bottom: 10px;
+}
+
+.card-bottom {
+    display: flex;
+    justify-content: center;
+}
+
+.card-body-excerpt {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+// fonts
+.roboto {
+    font-family: 'Roboto Mono', monospace;
+}
+
+.freehand {
+    font-family: 'Freehand', cursive;
+    font-size: 19px
+}
+
+.gochihand {
+    font-family: 'Gochi Hand', cursive;
+}
+
+.handlee {
+    font-family: 'Handlee', cursive;
+}
+
+.anotherhand {
+    font-family: 'Just Another Hand', cursive;
+    font-size: 22px;
+}
+
+.partrickhand {
+    font-family: 'Patrick Hand SC', cursive;
+    font-size: 18px;
 }

@@ -27,6 +27,7 @@ class NovelsController < ApplicationController
 
   def show
     @novel = Novel.find params[:id]
+    @font = hand_written.sample
   end
 
   def destroy

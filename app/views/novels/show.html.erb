@@ -1,26 +1,28 @@
-<% if @novel.title.present? %>
-    <h2><%= @novel.title %></h2>
-<% else %>
-    <h2>untitled novel</h2>
-<% end %>
+<div class="<%= @font %>" >
+    <% if @novel.title.present? %>
+        <h2><%= @novel.title %></h2>
+    <% else %>
+        <h2 class="roboto">untitled novel</h2>
+    <% end %>
 
-<% if @novel.cover.present? %>
-    <img src="<%= @novel.cover %>" alt="A picture of the novels cover.">
-<% else %>
-    <img src="http://www.fillmurray.com/200/300" alt="A picture of the novels cover.">
-<% end %>
-<hr>
-<span>Blurb: </span>
-<% if @novel.blurb.present? %>
-    <%= @novel.blurb %>
-<% else %>
-    No blurb has been written yet...
-<% end %>
+    <% if @novel.cover.present? %>
+        <img src="<%= @novel.cover %>" alt="A picture of the novels cover.">
+    <% else %>
+        <img src="http://www.fillmurray.com/200/300" alt="A picture of the novels cover.">
+    <% end %>
+    <hr>
+    <span class="roboto">Blurb: </span>
+    <% if @novel.blurb.present? %>
+        <%= @novel.blurb %>
+    <% else %>
+        <span class="roboto">No blurb has been written yet...</span>
+    <% end %>
 
-<hr>
+    <hr>
 
-<div class='text-start'>
-    <%= @novel.content %>
+    <div class='text-start'>
+        <%= @novel.content %>
+    </div>
 </div>
 <br>
 <h4>Authors:</h4>
@@ -31,11 +33,11 @@
     </li>
 <% end %>
 </ul>
-
+<br>
 <% if @novel.user == @current_user %>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
-                <%= link_to 'Edit Novel', edit_novel_path(@novel), :class => 'btn btn-primary btn-sm' %>
+                <%= link_to 'Edit Novel', edit_novel_path(@novel), :class => 'btn btn-primary btn-edit-top' %>
                 <form action="<%=novel_path(@novel)%>" method="POST">
                     <input type="hidden" name="_method" value="DELETE">
                     <button type="submit" class="btn btn-secondary btn-sm"> Delete Novel </button>

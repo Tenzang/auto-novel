@@ -1,4 +1,5 @@
 <h2>Top 5 Novels</h2>
+<br>
 <div class="row d-flex justify-content-evenly">
     <div class="col-1"></div>
     <% @novels.each do |novel| %>
@@ -12,17 +13,18 @@
                     <img class="card-img-top" src="http://www.fillmurray.com/200/300" alt="A picture of the novels cover.">
                 <% end%>
             <% end %>
-            <% if novel.title.present? %>
-                <h5><%= link_to novel.title, novel %></h5>
-            <% else %>
-                <h5><%= link_to 'untitled novel', novel %></h5>
-            <% end %>
-            <% if novel.blurb.present? %>
-                <p><%= novel.blurb %></p>
-            <% else %>
-                <p>This novel doesn't have a blurb yet.</p>
-            <% end %>
-            
+            <div class="<%= @fonts.sample %>">
+                <% if novel.title.present? %>
+                    <h5><%= link_to novel.title, novel %></h5>
+                <% else %>
+                    <h5 style="font-family: 'Roboto Mono', monospace"><%= link_to 'untitled novel', novel %></h5>
+                <% end %>
+                <% if novel.blurb.present? %>
+                    <p><%= novel.blurb %></p>
+                <% else %>
+                    <p style="font-family: 'Roboto Mono', monospace">This novel doesn't have a blurb yet.</p>
+                <% end %>
+            </div>
             <span>upvotes: </span>
             <%= novel.pseudousers.count %>
             <% if @current_user.present? %>

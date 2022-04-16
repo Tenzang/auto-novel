@@ -11,6 +11,7 @@ class ExcerptsController < ApplicationController
 
   def edit
     @excerpt = Excerpt.find params[:id]
+    redirect_to root_path unless @excerpt.user == @current_user
   end
 
   def update

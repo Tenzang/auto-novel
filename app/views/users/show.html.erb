@@ -16,7 +16,7 @@
 
         </ul>
 
-        <div class="card-body">
+        <div class="card-body card-body-excerpt">
 
             <p class="card-text">Excerpts are the life blood of Auto-Novel.<br><br>The more excerpts you write, the more diverse and zany the novels you generate will become!</p>
 
@@ -57,21 +57,22 @@
 
         </ul>
 
-        <div class="card-body">
+        <div class="card-body card-body-excerpt">
 
-            <p class="card-text"><%= f.content %></p>
+            <p class="card-text <%= @fonts.sample %>"><%= f.content %></p>
 
         </div>
 
         <ul class="list-group list-group-flush">
 
             <li class="list-group-item">
-
-                <%= link_to 'edit', edit_excerpt_path(f), :class => 'btn btn-primary btn-sm' %>
-                <form action="<%=excerpt_path(48)%>" method="POST">
-                    <input type="hidden" name="_method" value="DELETE">
-                    <button type="submit" class="btn btn-secondary btn-sm"> Delete </button>
-                </form>
+                <div class="card-bottom">
+                    <%= link_to 'edit', edit_excerpt_path(f), :class => 'btn btn-primary btn-sm btn-edit' %>
+                    <form action="<%=excerpt_path(f)%>" method="POST">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button type="submit" class="btn btn-secondary btn-sm"> Delete </button>
+                    </form>
+                </div>
             
             </li>
 
