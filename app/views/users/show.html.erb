@@ -92,8 +92,9 @@
 
         <div class="card-body">
 
-            <img class="card-img-top" src="https://i.pinimg.com/originals/1a/86/b8/1a86b81900e6c355980a57427313898d.jpg" alt="A picture of the novels cover.">
-
+            <%= link_to new_novel_path do %>
+                <img class="card-img-top" src="https://i.pinimg.com/originals/1a/86/b8/1a86b81900e6c355980a57427313898d.jpg" alt="A picture of the novels cover.">
+            <% end %>
         </div>
 
         <ul class="list-group list-group-flush">
@@ -125,11 +126,11 @@
             <% if f.cover.present? %>
                 <%= link_to f do %>
                     <img class="card-img-top" src="<%= f.cover %>" alt="A picture of the novels cover.">
-                <% end%>
+                <% end %>
             <% else %>
                 <%= link_to f do %>
                     <img class="card-img-top" src="http://www.fillmurray.com/200/300" alt="A picture of the novels cover.">
-                <% end%>
+                <% end %>
             <% end %>
  
         </div>
