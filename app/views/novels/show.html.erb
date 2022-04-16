@@ -31,10 +31,11 @@
     </li>
 <% end %>
 </ul>
+<% if @novel.user == @current_user %>
+    <%= link_to 'Edit Novel', edit_novel_path(@novel) %>
 
-<%= link_to 'Edit Novel', edit_novel_path(@novel) %>
-
-<form action="<%=novel_path(@novel)%>" method="POST">
-    <input type="hidden" name="_method" value="DELETE">
-    <button type="submit"> Delete Novel </button>
-</form>
+    <form action="<%=novel_path(@novel)%>" method="POST">
+        <input type="hidden" name="_method" value="DELETE">
+        <button type="submit"> Delete Novel </button>
+    </form>
+<% end %>

@@ -1,4 +1,5 @@
 class NovelsController < ApplicationController
+
   def new
     @novel = Novel.new
   end
@@ -15,6 +16,7 @@ class NovelsController < ApplicationController
 
   def edit
     @novel = Novel.find params[:id]
+    redirect_to root_path unless @novel.user == @current_user
   end
 
   def update
@@ -43,4 +45,5 @@ class NovelsController < ApplicationController
   def novel_params
     params.require(:novel).permit(:title, :blurb, :cover, :upvotes)
   end
+
 end

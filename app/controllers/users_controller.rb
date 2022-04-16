@@ -10,7 +10,7 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       redirect_to root_path # you can redirect wherever you want
     else
-      render :new # show them the form again so they can try again
+      redirect_to new_user_path # show them the form again so they can try again
     end
   end
 
