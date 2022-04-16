@@ -67,10 +67,10 @@
 
             <li class="list-group-item">
 
-                <%= link_to 'edit excerpt', edit_excerpt_path(f), :class => 'btn btn-secondary btn-sm' %>
+                <%= link_to 'edit', edit_excerpt_path(f), :class => 'btn btn-primary btn-sm' %>
                 <form action="<%=excerpt_path(48)%>" method="POST">
                     <input type="hidden" name="_method" value="DELETE">
-                    <button type="submit" class="btn btn-secondary btn-sm"> Delete Excerpt </button>
+                    <button type="submit" class="btn btn-secondary btn-sm"> Delete </button>
                 </form>
             
             </li>

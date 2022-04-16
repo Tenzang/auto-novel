@@ -22,20 +22,24 @@
 <div class='text-start'>
     <%= @novel.content %>
 </div>
-
-<h3>Authors:</h3>
-<ul>
+<br>
+<h4>Authors:</h4>
+<ul class="list-group authors">
 <% @novel.excerpts.map{ |excerpt| excerpt.user }.uniq.each do |author| %>
-    <li>
+    <li class="list-group-item">
         <%= author.name %>
     </li>
 <% end %>
 </ul>
-<% if @novel.user == @current_user %>
-    <%= link_to 'Edit Novel', edit_novel_path(@novel) %>
 
-    <form action="<%=novel_path(@novel)%>" method="POST">
-        <input type="hidden" name="_method" value="DELETE">
-        <button type="submit"> Delete Novel </button>
-    </form>
+<% if @novel.user == @current_user %>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <%= link_to 'Edit Novel', edit_novel_path(@novel), :class => 'btn btn-primary btn-sm' %>
+                <form action="<%=novel_path(@novel)%>" method="POST">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button type="submit" class="btn btn-secondary btn-sm"> Delete Novel </button>
+                </form>
+            </li>
+        </ul>
 <% end %>
