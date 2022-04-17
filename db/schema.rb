@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_15_071334) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_17_025546) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,6 +20,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_15_071334) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "novel_region"
+    t.text "paragraph_region"
   end
 
   create_table "excerpts_novels", id: false, force: :cascade do |t|
@@ -36,6 +38,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_15_071334) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "word_count"
   end
 
   create_table "novels_pseudousers", id: false, force: :cascade do |t|

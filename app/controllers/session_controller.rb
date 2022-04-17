@@ -1,5 +1,6 @@
 class SessionController < ApplicationController
   def new
+    @highlighted = "log in"
   end
 
   def create

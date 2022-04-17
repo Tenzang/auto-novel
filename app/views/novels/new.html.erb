@@ -1,9 +1,17 @@
 <h1>New Novel</h1>
-
-<%= form_for @novel do |f| %>
-    * specification input coming soon
-    <%= f.label :length %>
-    <%# f.text_field :length %>
-
-    <%= f.submit "Generate Novel" %>
-<% end %>
+<div class="form-container">
+    <%= form_for @novel do |f| %>
+        * more inputs coming soon
+        <br>
+        <div class="form-group">
+            <%= f.label :word_count %>
+            <div class="inline-form">
+                <span>The novel you generate will be roughly</span>
+                <%= f.number_field :word_count, min: 1, step: 1, :class => 'form-control', :placeholder => 'count', :required => 'required' %>
+                <span>words long.</span>
+            </div>
+        </div>
+        <br>
+        <%= f.submit "Generate Novel" %>
+    <% end %>
+</div>

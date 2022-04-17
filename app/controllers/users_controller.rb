@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
-  
+  before_action :check_for_login, only: [:show]
+
   def new
+    @highlighted = "create account"
     @user = User.new
   end
   
@@ -16,6 +18,7 @@ class UsersController < ApplicationController
   end
   
   def show
+    @highlighted = "library"
     @fonts = hand_written
   end
   

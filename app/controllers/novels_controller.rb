@@ -1,6 +1,8 @@
 class NovelsController < ApplicationController
+  before_action :check_for_login, only: [:new]
 
   def new
+    @highlighted = "new novel"
     @novel = Novel.new
   end
 

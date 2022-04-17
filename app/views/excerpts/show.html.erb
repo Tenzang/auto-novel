@@ -1,3 +1,20 @@
 <h1>Excerpt</h1>
+<br>
+<div class="<%= @font %>">
+    <%= @excerpt.content %>
+</div>
+<br>
+<ul class="list-group list-group-flush">
 
-excerpt goes here...
+    <li class="list-group-item">
+        <div class="card-bottom">
+            <%= link_to 'edit', edit_excerpt_path(@excerpt), :class => 'btn btn-primary btn-sm btn-edit' %>
+            <form action="<%=excerpt_path(@excerpt)%>" method="POST">
+                <input type="hidden" name="_method" value="DELETE">
+                <button type="submit" class="btn btn-secondary btn-sm"> Delete </button>
+            </form>
+        </div>
+    
+    </li>
+
+</ul>
