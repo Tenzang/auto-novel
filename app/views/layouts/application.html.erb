@@ -61,13 +61,7 @@
             </li>
 
           </ul>
-
-          <form action="<%=login_path%>" method="POST">
-
-            <input type="hidden" name="_method" value="DELETE">
-            <button type="submit" class="nav-link justify-content-right btn">Log Out</button>
-
-          </form>
+          <%= link_to "Log Out", login_path, :method => 'delete', :class => "nav-link justify-content-right btn" %>
 
           <% else %>
 

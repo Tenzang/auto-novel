@@ -1,24 +1,50 @@
-# README
+# Auto-Novel
+> Click [_here_](https://auto-novel.herokuapp.com/) to churn out literary garbage at an impressive rate.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+---------------------
 
-Things you may want to cover:
+"Lets be honest, you're no Mary Shelly - but at least you can be Dr. Frankenstein!
 
-* Ruby version
 
-* System dependencies
+Go to your library to start generating novels. The process is automatic, and before long you'll have your very own (literary) monsters made up of a mish-mosh of user-submitted excerpts.
 
-* Configuration
 
-* Database creation
+Oh, and write some of your own excerpts too. It might find its way into someones elses auto-novel - And if it does, you'll be credited!"
 
-* Database initialization
+-----------------
 
-* How to run the test suite
+You can test the app with the following user, or create an account for yourself.
 
-* Services (job queues, cache servers, search engines, etc.)
+| **Username** | **Password** |
+|:------------:|:------------:|
+|testguy@ga.com  |   chicken    |
+|Mary@ga.com |   chicken    |
+|Edgar@ga.com |   chicken    |
+|Stephen@ga.com |   chicken    |
+|Mark@ga.com |   chicken    |
+|Ernest@ga.com |   chicken    |
 
-* Deployment instructions
 
-* ...
+## Table of Contents
+* [General Info](#general-information)
+* [Technologies Used](#technologies-used)
+* [Features](#features)
+<!-- * [License](#license) -->
+
+## General Information
+- Generate and curate a library of auto-novels. All you have to do is provide your desired word count and Auto-Novel will spit out a goofy word mess for you to admire and cherish.
+
+## Languages Used
+- CSS
+- Ruby
+
+## Technologies Used
+- Rails
+
+## Features
+- Create user accounts and log in.
+- Automatically generate and customise novels and add them to your library.
+- Submit and maintain a library of excerpts which may be used in one more more novels.
+- Credit on novels that utilize your excerpts.
+- Upvote auto novels you like.
+- Top 100 auto novels are displayed on the front page.
