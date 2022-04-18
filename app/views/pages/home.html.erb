@@ -45,7 +45,7 @@
                 <%= form_for @current_user.pseudouser do |f| %>
                     <%= f.hidden_field :user_id, :value => novel.id %>
                     <%= button_tag :submit, :class => 'upvote' do %>
-                        <img style="width:1em;<% if novel.pseudousers.exists?(id: @current_user.pseudouser.id) %>transform:scaleY(-1)<% end %>" src="/assets/upvote.png" alt="upvote icon">
+                        <img style="width:1em;<% if novel.pseudousers.exists?(id: @current_user.pseudouser.id) %>transform:scaleY(-1)<% end %>" src="https://res.cloudinary.com/dkp1pm8pf/image/upload/v1650303342/upvote_klzlu1.png" alt="upvote icon">
                     <% end %>
                 <% end %>
 
