@@ -22,7 +22,7 @@
             <h1 class="fs-4">Auto-Novel</h1>
           </a>
 
-          <div class="nav-name"><%= @current_user.name %></div>
+          <div class="nav-name"><%= @current_user.name if @current_user.present? %></div>
 
           <ul class="nav nav-pills">
 

@@ -15,20 +15,19 @@ Oh, and write some of your own excerpts too. It might find its way into someones
 
 You can test the app with the following user, or create an account for yourself.
 
-| **Username** | **Password** |
-|:------------:|:------------:|
-|testguy@ga.com  |   chicken    |
-|mary@shelley.com |   chicken    |
-|edgar@poe.com |   chicken    |
-|Mark@ga.com |   chicken    |
-|Ernest@ga.com |   chicken    |
+| **Username**         | **Password** |
+|:--------------------:|:------------:|
+|testguy@ga.com        |   chicken    |
+|mary@shelley.com      |   chicken    |
+|edgar@poe.com         |   chicken    |
+|mark@twain.com        |   chicken    |
+|ernest@hemmingway.com |   chicken    |
 
 
 ## Table of Contents
 * [General Info](#general-information)
 * [Technologies Used](#technologies-used)
 * [Features](#features)
-<!-- * [License](#license) -->
 
 ## General Information
 - Generate and curate a library of auto-novels. All you have to do is provide your desired word count and Auto-Novel will spit out a goofy word mess for you to admire and cherish.
