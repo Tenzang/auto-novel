@@ -18,9 +18,8 @@ You can test the app with the following user, or create an account for yourself.
 | **Username** | **Password** |
 |:------------:|:------------:|
 |testguy@ga.com  |   chicken    |
-|Mary@ga.com |   chicken    |
-|Edgar@ga.com |   chicken    |
-|Stephen@ga.com |   chicken    |
+|mary@shelley.com |   chicken    |
+|edgar@poe.com |   chicken    |
 |Mark@ga.com |   chicken    |
 |Ernest@ga.com |   chicken    |
 
