@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Autonovel</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body class="text-center">
+    <div class="container">
+
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+          
+          <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+            <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+            <h1 class="fs-4">Auto-Novel</h1>
+          </a>
+
+          <ul class="nav nav-pills">
+
+            <li class="nav-item">
+              <% if params[:action] == "home" %>
+                <%= link_to "Home", root_path, :class => 'nav-link active' %>
+              <% else %>
+                <%= link_to "Home", root_path, :class => 'nav-link' %>
+              <% end %>
+            </li>
+
+            <% if @current_user.present? %>
+
+            <li class="nav-item">
+
+              <% if params[:action] == "show" && params[:controller] == "users" %>
+                <%= link_to "Your Library", user_path(@current_user), :class => "nav-link active" %>
+              <% else %>
+                <%= link_to "Your Library", user_path(@current_user), :class => "nav-link" %>
+              <% end %>
+
+            </li>
+
+            <li class="nav-item">
+              <% if params[:action] == "new" && params[:controller] == "excerpts" %>
+                <%= link_to "New Excerpt", new_excerpt_path, :class => "nav-link active" %>
+              <% else %>
+                <%= link_to "New Excerpt", new_excerpt_path, :class => "nav-link" %>
+              <% end %>
+            </li>
+
+            <li class="nav-item">
+              <% if params[:action] == "new" && params[:controller] == "novels" %>
+                <%= link_to "New Novel", new_novel_path, :class => "nav-link active" %>
+              <% else %>
+                <%= link_to "New Novel", new_novel_path, :class => "nav-link" %>
+              <% end %>
+            </li>
+
+          </ul>
+
+          <form action="<%=login_path%>" method="POST">
+
+            <input type="hidden" name="_method" value="DELETE">
+            <button type="submit" class="nav-link justify-content-right btn">Log Out</button>
+
+          </form>
+
+          <% else %>
+
+            <li class="nav-item">
+              <% if params[:action] == "new" && params[:controller] == "session" %>
+                <%= link_to "Log In", login_path, :class => "nav-link active" %>
+              <% else %>
+                <%= link_to "Log In", login_path, :class => "nav-link" %>
+              <% end %>
+            </li>
+
+            <li class="nav-item">
+              <% if params[:action] == "new" && params[:controller] == "users" %>
+                <%= link_to "Create Account", new_user_path, :class => "nav-link active" %>
+              <% else %>
+                <%= link_to "Create Account", new_user_path, :class => "nav-link" %>
+              <% end %>
+            </li>
+
+          <% end %>
+          </ul>
+        </header>
+      </div>
+
+      <%= yield %>
+        
+    </div>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+<h2 class="h3 mb-3 fw-normal">Please sign in</h2>
+<main class="form-signin">
+<div class="row">
+    <div class="d-flex justify-content-center">
+        <%= form_tag login_path do %>
+            <div class="form-floating">
+                <%= email_field_tag :email, nil, :class => 'form-control', :id => 'floatingInput', :placeholder => 'name@example.com' %>
+                <%= label_tag :email, nil, :for => 'floatingInput' %>
+            </div>
+            <div class="form-floating">
+                <%= password_field_tag :password, nil, :class => 'form-control', :id => 'floatingInput', :placeholder => 'name@example.com' %>
+                <%= label_tag :password, nil, :for => 'floatingInput'  %>
+            </div>
+            <br>
+            <%= submit_tag "Sign in", :class => "w-100 btn btn-lg btn-primary" %>
+        <% end %>
+    </div>
+</div>
+
+</main>

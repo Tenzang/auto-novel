@@ -1,0 +1,155 @@
+<h2>Your Library</h2>
+<hr>
+<h3>Excerpts</h3>
+
+<div class="row">
+
+    <div class="col-3 card text-center">
+
+        <ul class="list-group list-group-flush">
+        
+            <li class="list-group-item">
+
+                <h5 class="card-title">About Excerpts</h5>
+
+            </li>
+
+        </ul>
+
+        <div class="card-body card-body-excerpt">
+
+            <p class="card-text">Excerpts are the life blood of Auto-Novel.<br><br>The more excerpts you write, the more diverse and zany the novels you generate will become!</p>
+
+        </div>
+
+        <ul class="list-group list-group-flush">
+
+            <li class="list-group-item">
+
+                <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+
+                    <%= link_to 'Create New Excerpt', new_excerpt_path, :class => "btn btn-primary" %>
+
+                </div>
+
+            </li>
+
+        </ul>
+
+    </div>
+    <% count = 1 %>
+    <% @current_user.excerpts.each do |f| %>
+    <% if count % 4 == 0 %>
+</div>
+<div class="row">
+    <% end %>
+    <% count += 1 %>
+
+    <div class="col-3 card text-center">
+
+        <ul class="list-group list-group-flush">
+
+            <li class="list-group-item">
+
+                <h5 class="card-title"> <a href="<%= excerpt_path f.id %>">Excerpt</a></h5>
+            
+            </li>
+
+        </ul>
+
+        <div class="card-body card-body-excerpt">
+
+            <p class="card-text <%= @fonts.sample %>"><%= f.content %></p>
+
+        </div>
+
+        <ul class="list-group list-group-flush">
+
+            <li class="list-group-item">
+                <div class="card-bottom">
+                    <%= link_to 'edit', edit_excerpt_path(f), :class => 'btn btn-primary btn-sm btn-edit' %>
+                    <form action="<%=excerpt_path(f)%>" method="POST">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button type="submit" class="btn btn-secondary btn-sm"> Delete </button>
+                    </form>
+                </div>
+            
+            </li>
+
+        </ul>
+
+    </div>
+    <% end %>
+
+</div>
+
+<hr>
+
+<h3>Novels</h3>
+
+<div class="row">
+
+    <div class="col-3 card text-center">
+
+        <div class="card-body">
+
+            <%= link_to new_novel_path do %>
+                <img class="card-img-top" src="https://i.pinimg.com/originals/1a/86/b8/1a86b81900e6c355980a57427313898d.jpg" alt="A picture of the novels cover.">
+            <% end %>
+        </div>
+
+        <ul class="list-group list-group-flush">
+
+            <li class="list-group-item">
+
+                <%= link_to "New Novel", new_novel_path, :class => "btn btn-primary" %>
+            
+            </li>
+
+        </ul>
+
+    </div>
+
+    <% count = 1 %>
+    <% @current_user.novels.each do |f| %>
+    <% if count % 4 == 0 %>
+</div>
+<div class="row">
+    <% end %>
+    <% count += 1 %>
+    
+    <div class="col-3 card text-center">
+
+        </ul>
+
+            <div class="card-body">
+
+            <% if f.cover.present? %>
+                <%= link_to f do %>
+                    <img class="card-img-top" src="<%= f.cover %>" alt="A picture of the novels cover.">
+                <% end %>
+            <% else %>
+                <%= link_to f do %>
+                    <img class="card-img-top" src="http://www.fillmurray.com/200/300" alt="A picture of the novels cover.">
+                <% end %>
+            <% end %>
+ 
+        </div>
+
+        <ul class="list-group list-group-flush">
+
+            <li class="list-group-item">
+
+                <% if f.title.present? %>
+                    <h5><%= link_to f.title, f %></h5>
+                <% else %>
+                    <h5><%= link_to 'untitled novel', f %></h5>
+                <% end %>     
+
+            </li>
+
+    </div>
+
+    <% end %>
+
+</div>

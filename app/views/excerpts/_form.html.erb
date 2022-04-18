@@ -1,0 +1,61 @@
+<br>
+<div class="row">
+    <div class="col-2"></div>
+    <div class=" col-8">
+        <%= form_for @excerpt do |f| %>
+            <%= f.label :content, :hidden => 'hidden' %>
+            <%= f.text_area :content, :class => "form-control", :placeholder => 'Write your excerpt here.' %>
+            <br>
+            Where is your excerpt best suited?
+
+            <div class="radios">
+
+                <ul class="list-group list-group-flush">
+
+                    <li class="list-group-item">
+                        Novel Region:
+                    </li>
+
+                    <li class="list-group-item">
+                        <div class="form-check">
+                            <%= f.radio_button :novel_region, 'beginning', :id => "novel-beginning", :class => "form-check-input" %>
+                            <%= f.label "Beginning", :for => "novel-beginning", :class => "form-check-label" %>
+                        </div>
+                        <div class="form-check">
+                            <%= f.radio_button :novel_region, 'middle', :id => "novel-middle", :class => "form-check-input" %>
+                            <%= f.label "Middle", :for => "novel-middle", :class => "form-check-label" %>
+                        </div>
+                        <div class="form-check">
+                            <%= f.radio_button :novel_region, 'end', :id => "novel-end", :class => "form-check-input" %>
+                            <%= f.label "End", :for => "novel-end", :class => "form-check-label" %>
+                        </div>
+                    </li>
+
+                </ul>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        Paragraph Region:
+                    </li>
+                    <li class="list-group-item">
+                        <div class="form-check">
+                            <%= f.radio_button :paragraph_region, 'beginning', :id => "paragraph-beginning", :class => "form-check-input" %>
+                            <%= f.label "Beginning", :for => "paragraph-beginning", :class => "form-check-label" %>
+                        </div>
+                        <div class="form-check">
+                            <%= f.radio_button :paragraph_region, 'middle', :id => "paragraph-middle", :class => "form-check-input" %>
+                            <%= f.label "Middle", :for => "paragraph-middle", :class => "form-check-label" %>
+                        </div>
+                        <div class="form-check">
+                            <%= f.radio_button :paragraph_region, 'end', :id => "paragraph-end", :class => "form-check-input" %>
+                            <%= f.label "End", :for => "paragraph-end", :class => "form-check-label" %>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+            <br>
+            <%= f.submit nil, :class => 'btn btn-primary' %>
+        <% end %>
+    </div>
+    <div class="col-2"></div>
+</div>
