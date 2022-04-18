@@ -58,3 +58,4 @@ end
 gem 'rails_12factor'
 gem 'bootstrap'
 gem 'jquery-rails'
+gem 'cloudinary'
