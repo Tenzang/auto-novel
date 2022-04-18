@@ -12,13 +12,12 @@
     </p>
 </div>
 <br>
-<h2>Top 5 Novels</h2>
+<h2>Top 100 Novels</h2>
 <br>
 <br>
-<div class="row d-flex justify-content-evenly">
-    <div class="col-1"></div>
+<div class="col-2 top-hundred">
     <% @novels.each do |novel| %>
-        <div class="col-2">
+        <div>
             <% if novel.cover.present? %>
                 <%= link_to novel do %>
                     <%= cl_image_tag(novel.cover, :class => "card-img-top") %>
@@ -43,14 +42,14 @@
             <span>upvotes: </span>
             <%= novel.pseudousers.count %>
             <% if @current_user.present? %>
-                <form action="<%= upvote_path(@current_user.pseudouser.id) %>" method="post">
-                    <input type="hidden" name="upvote" value="<%= novel.id %>">
-                        <button class="upvote">
-                            <img style="width:1em;<% if novel.pseudousers.exists?(id: @current_user.pseudouser.id) %>transform:scaleY(-1)<% end %>" src="/assets/upvote.png" alt="upvote icon">
-                        </button>
-                </form>
+                <%= form_for @current_user.pseudouser do |f| %>
+                    <%= f.hidden_field :user_id, :value => novel.id %>
+                    <%= button_tag :submit, :class => 'upvote' do %>
+                        <img style="width:1em;<% if novel.pseudousers.exists?(id: @current_user.pseudouser.id) %>transform:scaleY(-1)<% end %>" src="/assets/upvote.png" alt="upvote icon">
+                    <% end %>
+                <% end %>
+
             <% end %>
         </div>
     <% end %>
-    <div class="col-1"></div>
 </div>

@@ -38,7 +38,7 @@
 
     </div>
     <% count = 1 %>
-    <% @current_user.excerpts.each do |f| %>
+    <% @current_user.excerpts.each do |excerpt| %>
     <% if count % 4 == 0 %>
 </div>
 <div class="row">
@@ -51,7 +51,7 @@
 
             <li class="list-group-item">
 
-                <h5 class="card-title"> <a href="<%= excerpt_path f.id %>">Excerpt</a></h5>
+                <h5 class="card-title"> <a href="<%= excerpt_path excerpt.id %>">Excerpt</a></h5>
             
             </li>
 
@@ -59,7 +59,7 @@
 
         <div class="card-body card-body-excerpt">
 
-            <p class="card-text <%= @fonts.sample %>"><%= f.content %></p>
+            <p class="card-text <%= @fonts.sample %>"><%= excerpt.content %></p>
 
         </div>
 
@@ -67,11 +67,11 @@
 
             <li class="list-group-item">
                 <div class="card-bottom">
-                    <%= link_to 'edit', edit_excerpt_path(f), :class => 'btn btn-primary btn-sm btn-edit' %>
-                    <form action="<%=excerpt_path(f)%>" method="POST">
-                        <input type="hidden" name="_method" value="DELETE">
-                        <button type="submit" class="btn btn-secondary btn-sm"> Delete </button>
-                    </form>
+                    <%= link_to 'edit', edit_excerpt_path(excerpt), :class => 'btn btn-primary btn-sm btn-edit' %>
+                    <%= form_for excerpt, method: :delete do |f| %>
+                        <%= f.hidden_field :id, :value => excerpt.id %>
+                        <%= f.submit 'Delete', :class => 'btn btn-secondary btn-sm' %>
+                    <% end %>
                 </div>
             
             </li>
@@ -111,7 +111,7 @@
     </div>
 
     <% count = 1 %>
-    <% @current_user.novels.each do |f| %>
+    <% @current_user.novels.each do |novel| %>
     <% if count % 4 == 0 %>
 </div>
 <div class="row">
@@ -124,12 +124,12 @@
 
             <div class="card-body">
 
-            <% if f.cover.present? %>
-                <%= link_to f do %>
-                    <img class="card-img-top" src="<%= f.cover %>" alt="A picture of the novels cover.">
+            <% if novel.cover.present? %>
+                <%= link_to novel do %>
+                    <img class="card-img-top" src="<%= novel.cover %>" alt="A picture of the novels cover.">
                 <% end %>
             <% else %>
-                <%= link_to f do %>
+                <%= link_to novel do %>
                     <img class="card-img-top" src="http://www.fillmurray.com/200/300" alt="A picture of the novels cover.">
                 <% end %>
             <% end %>
@@ -140,10 +140,10 @@
 
             <li class="list-group-item">
 
-                <% if f.title.present? %>
-                    <h5><%= link_to f.title, f %></h5>
+                <% if novel.title.present? %>
+                    <h5><%= link_to novel.title, novel %></h5>
                 <% else %>
-                    <h5><%= link_to 'untitled novel', f %></h5>
+                    <h5><%= link_to 'untitled novel', novel %></h5>
                 <% end %>     
 
             </li>

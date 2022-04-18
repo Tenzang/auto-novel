@@ -39,10 +39,10 @@
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
                 <%= link_to 'Edit Novel', edit_novel_path(@novel), :class => 'btn btn-primary btn-edit-top' %>
-                <form action="<%=novel_path(@novel)%>" method="POST">
-                    <input type="hidden" name="_method" value="DELETE">
-                    <button type="submit" class="btn btn-secondary btn-sm"> Delete Novel </button>
-                </form>
+                <%= form_for novel_path(@novel), method: :delete do |f| %>
+                    <%= f.hidden_field :id, :value => @novel.id %>
+                    <%= f.submit 'Delete Novel', :class => 'btn btn-secondary btn-sm' %>
+                <% end %>
             </li>
         </ul>
 <% end %>

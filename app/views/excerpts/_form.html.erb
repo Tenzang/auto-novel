@@ -4,7 +4,7 @@
     <div class=" col-8">
         <%= form_for @excerpt do |f| %>
             <%= f.label :content, :hidden => 'hidden' %>
-            <%= f.text_area :content, :class => "form-control", :placeholder => 'Write your excerpt here.' %>
+            <%= f.text_area :content, :class => "form-control", :placeholder => 'Write your excerpt here.', :required => "required" %>
             <br>
             Where is your excerpt best suited?
 
@@ -18,7 +18,7 @@
 
                     <li class="list-group-item">
                         <div class="form-check">
-                            <%= f.radio_button :novel_region, 'beginning', :id => "novel-beginning", :class => "form-check-input" %>
+                            <%= f.radio_button :novel_region, 'beginning', :id => "novel-beginning", :class => "form-check-input", :required => "required" %>
                             <%= f.label "Beginning", :for => "novel-beginning", :class => "form-check-label" %>
                         </div>
                         <div class="form-check">
@@ -38,7 +38,7 @@
                     </li>
                     <li class="list-group-item">
                         <div class="form-check">
-                            <%= f.radio_button :paragraph_region, 'beginning', :id => "paragraph-beginning", :class => "form-check-input" %>
+                            <%= f.radio_button :paragraph_region, 'beginning', :id => "paragraph-beginning", :class => "form-check-input", :required => "required" %>
                             <%= f.label "Beginning", :for => "paragraph-beginning", :class => "form-check-label" %>
                         </div>
                         <div class="form-check">

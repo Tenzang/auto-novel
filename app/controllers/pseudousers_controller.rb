@@ -1,7 +1,7 @@
 class PseudousersController < ApplicationController
     def upvote
         puts '--------------------------UPVOTE BEING MADE...--------------------------'
-        puts novel = Novel.find(params[:upvote])
+        puts novel = Novel.find(params[:pseudouser][:user_id])
         if @current_user.present?
 
             if novel.pseudousers.exists?(id: @current_user.pseudouser.id)
@@ -17,5 +17,4 @@ class PseudousersController < ApplicationController
         end
         redirect_to root_path
     end
-
 end

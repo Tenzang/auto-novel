@@ -7,8 +7,7 @@ class NovelsController < ApplicationController
 
   def create
     novel = Novel.new
-    find_excerpts.each { |excerpt| novel.excerpts << excerpt }
-    novel.content = novel.excerpts.map{ |excerpt| excerpt.content }.join ' '
+    novel.content = (find_excerpts(params[:novel][:word_count]).map { |excerpt| novel.excerpts << excerpt if excerpt.class == Excerpt.first.class; excerpt[:content] }).join ' '
     @current_user.novels << novel 
 
     novel.save
@@ -52,13 +51,8 @@ class NovelsController < ApplicationController
   end
 
   private
-  def find_excerpts
-    count = 3
-    excerpts = (0...Excerpt.count).to_a.shuffle.take(count).map{ |excerpt| Excerpt.limit(1).offset(excerpt)[0] }
-  end
-
   def novel_params
-    params.require(:novel).permit(:title, :blurb, :upvotes, :cover)
+    params.require(:novel).permit(:title, :blurb, :cover)
   end
 
 end
