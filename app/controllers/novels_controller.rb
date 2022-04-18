@@ -21,8 +21,21 @@ class NovelsController < ApplicationController
   end
 
   def update
-    novel = Novel.find params[:id]
+    novel = Novel.find params[:id] 
+
+    # CLOUDINARY FILE UPLOAD NOT WORKING 
+    # if params[:file].present?
+    #   req = Cloudinary::Uploader.upload(params[:file])
+    #   novel.cover = req["public_id"]
+    # end
+
+    if params[:cover].present?
+      novel.cover = params[:cover]
+    end
+
     novel.update novel_params
+    novel.save
+    
     redirect_to novel
   end
 
@@ -45,7 +58,7 @@ class NovelsController < ApplicationController
   end
 
   def novel_params
-    params.require(:novel).permit(:title, :blurb, :cover, :upvotes)
+    params.require(:novel).permit(:title, :blurb, :upvotes, :cover)
   end
 
 end

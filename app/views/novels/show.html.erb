@@ -4,12 +4,13 @@
     <% else %>
         <h2 class="roboto">untitled novel</h2>
     <% end %>
-
-    <% if @novel.cover.present? %>
-        <img src="<%= @novel.cover %>" alt="A picture of the novels cover.">
-    <% else %>
-        <img src="http://www.fillmurray.com/200/300" alt="A picture of the novels cover.">
-    <% end %>
+    <div class="cover-show">
+        <% if @novel.cover.present? %>
+            <img src="<%= @novel.cover %>" alt="A picture of the novels cover.">
+        <% else %>
+            <img src="http://www.fillmurray.com/200/300" alt="A picture of the novels cover.">
+        <% end %>
+    </div>
     <hr>
     <span class="roboto">Blurb: </span>
     <% if @novel.blurb.present? %>

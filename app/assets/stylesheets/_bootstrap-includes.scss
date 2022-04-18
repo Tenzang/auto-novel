@@ -79,6 +79,11 @@ div.form-floating:last-of-type input.form-control {
     display: flex;
 }
 
+// novel edit
+.cover-show img {
+    max-height: 277px;
+}
+
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
 -webkit-appearance: none; 

@@ -45,7 +45,7 @@ n1 = Novel.new
 n1.excerpts << e5 << e4 << e1
 n1.content = n1.excerpts.map{|excerpt| excerpt[:content]}.join ' '
 n1.word_count = n1.content.split.size
-n1.cover = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgdtcO5X1kJ7wvSgpuRHsY1dLxR6Pg4OkDmQ&usqp=CAU'
+n1.cover = 'https://res.cloudinary.com/dkp1pm8pf/image/upload/v1650258603/images_bshe4k.jpg'
 n1.title = 'Down Comes the Night'
 n1.blurb = "The guy spiraled pretty bad, and it was pretty late."
 n1.user = u1
@@ -55,7 +55,7 @@ n2 = Novel.new
 n2.excerpts << e7 << e4 << e1
 n2.content = n2.excerpts.map{|excerpt| excerpt[:content]}.join ' '
 n2.word_count = n2.content.split.size
-n2.cover = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLoTKWO8Tt07PYD-lLSZpHp1NlLpb0dR4SRzHsd2DsizFBp8wxDvwSD7noPkGUHqFxNXk&usqp=CAU'
+n2.cover = 'https://res.cloudinary.com/dkp1pm8pf/image/upload/v1650258626/images_qpscr6.jpg'
 n2.title = 'Greetings from Nowhere'
 n2.blurb = "A woman is greeted early in the morning by a mysterious man..."
 n2.user = u1

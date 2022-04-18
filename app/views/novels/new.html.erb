@@ -1,6 +1,6 @@
 <h1>New Novel</h1>
 <div class="form-container">
-    <%= form_for @novel do |f| %>
+    <%= form_for(@novel, :html => {:multipart => true}) do |f| %>
         * more inputs coming soon
         <br>
         <div class="form-group">
