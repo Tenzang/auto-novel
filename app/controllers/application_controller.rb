@@ -41,7 +41,8 @@ class ApplicationController < ActionController::Base
         last_para = [] << Excerpt.where({novel_region: 'end', paragraph_region: 'beginning'}).offset(excerpts[:enovbpar].sample).first << Excerpt.where({novel_region: 'end', paragraph_region: 'middle'}).offset(excerpts[:enovmpar].sample).first << Excerpt.where({novel_region: 'end', paragraph_region: 'end'}).offset(excerpts[:enovepar].sample).first
         
         # assemble middle paragraphs
-        middle = [{:content => "\n \n", :length => 0}]
+        newline = [{:content => "\n", :length => 0}]
+        middle = newline
         
         def word_counter(first_para, middle, last_para)
           (first_para + middle + last_para).reduce(0) { |count, excerpt| count + excerpt[:length] }
@@ -60,7 +61,7 @@ class ApplicationController < ActionController::Base
     
           # construct paragraph end
           middle << Excerpt.where({novel_region: 'middle', paragraph_region: 'end'}).offset(excerpts[:mnovepar].pop).first
-          excerpts_unused = false if excerpts[:mnovepar].empty?
+          excerpts_unused = false if excerpts[:mnovepar].empty? << newline
         end
         first_para + middle + last_para # returns array of excerpt objects
     end
