@@ -60,7 +60,7 @@ class ApplicationController < ActionController::Base
           end
     
           # construct paragraph end
-          middle << Excerpt.where({novel_region: 'middle', paragraph_region: 'end'}).offset(excerpts[:mnovepar].pop).first << newline
+          middle << Excerpt.where({novel_region: 'middle', paragraph_region: 'end'}).offset(excerpts[:mnovepar].pop).first
           excerpts_unused = false if excerpts[:mnovepar].empty?
         end
         first_para + middle + last_para # returns array of excerpt objects
