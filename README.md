@@ -17,7 +17,7 @@ You can test the app with the following user, or create an account for yourself.
 
 | **Username**         | **Password** |
 |:--------------------:|:------------:|
-|testguy@ga.com        |   chicken    |
+|testguy@ga.co        |   chicken    |
 |mary@shelley.com      |   chicken    |
 |edgar@poe.com         |   chicken    |
 |mark@twain.com        |   chicken    |
